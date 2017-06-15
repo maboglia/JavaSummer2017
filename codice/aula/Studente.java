@@ -17,6 +17,7 @@ public class Studente {
 	char genere;
 	int matricola;
 	static int generaMatricola;
+	boolean presente;
 	
 	//Metodo -------------------------------------------------//
 /**
@@ -27,6 +28,17 @@ public class Studente {
  * @param eta
  * @param genere
  */
+	public Studente(String nome, String cognome, char genere) {
+		generaMatricola++;
+		this.matricola =    generaMatricola ;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.eta = 0;
+		this.genere = genere;
+		this.presente = false;
+		this.data_nascita = 	new GregorianCalendar(1900, 0, 1);
+	}
+	//overload del metodo costruttore
 	public Studente(String nome, String cognome, GregorianCalendar data_nascita, char genere) {
 		generaMatricola++;
 		this.matricola =    generaMatricola ;
@@ -35,27 +47,36 @@ public class Studente {
 		this.data_nascita = data_nascita;
 		this.eta = 0;
 		this.genere = genere;
+		this.presente = false;
 	}
 	
 	public String stampaInfo(){
 		
 		return 
-				this.matricola + "\n " + 
-				this.nome + " " + 
-				this.cognome + "\n " + 
-				this.data_nascita.getTime()+ " " + 
-				this.genere + " "; 
+				"matricola: " + this.matricola + "\n " + 
+				"nome: " + this.nome.toUpperCase() + "\n" + 
+				"cognome: " + this.cognome.toUpperCase() + "\n " + 
+				"genere: " + this.genere + "\n" + 
+				//"data_nascita: " + this.data_nascita.getTime()+ " " + 
+				"presente: " + this.presente+ "\n" ;
 		
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "-------------------------------------------"+ "\n " +
+				"matricola: " + this.matricola + "\n " + 
+		"nome: " + this.nome.toUpperCase() + "\n" + 
+		"cognome: " + this.cognome.toUpperCase() + "\n " + 
+		"presente: " + this.presente + "\n " + 
+		 "\n" ;
 	}
 	
 
-	public static void main(String[] args) {
-		Studente Tina = new Studente("Tina",	"Labate", 	new GregorianCalendar(1963, 0, 14), 'F'  );
-		Studente Marco = new Studente("Marco",	"De Palma", 	new GregorianCalendar(1996, 5, 23), 'M'  );
-		
-		System.out.println(Tina.stampaInfo());
-		System.out.println(Marco.stampaInfo());
-	}
+
 	
 	
 	
