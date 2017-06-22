@@ -4,13 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-class Giocata {
-	
-	
-	
-	
-}
-
 
 public class PietraForbiceCarta2 {
 
