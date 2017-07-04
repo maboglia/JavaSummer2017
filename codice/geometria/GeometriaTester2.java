@@ -31,7 +31,13 @@ public class GeometriaTester2 {
 		System.out.println("Il perimetro del triangolo t è: " + t.perimetro());
 		System.out.println("L'area del triangolo t è: " + t.area());
 		
+		Rettangolo r = new Rettangolo(p1, 10, 5);
+		System.out.println(  "Il perimetro del rettangolo r è: "+ r.getPerimetro());
+		System.out.println(  "L'area del rettangolo r è: "+ r.getArea());
 		
+		Quadrato q = new Quadrato(p1, 10);
+		System.out.println(  "Il perimetro del quadrato q è: "+ q.getPerimetro());
+		System.out.println(  "L'area del quadrato q è: "+ q.getArea());
 		
 		
 		
