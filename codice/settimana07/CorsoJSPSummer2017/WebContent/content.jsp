@@ -1,3 +1,6 @@
+<%@page import="giochi.Dado"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="corso.Registro"%>
 <%@page import="corso.Studente" %>
 <div class="well">
 
@@ -16,24 +19,9 @@
 					case 1:
 						out.print("<h1>elenco studenti</h1>");
 						
-						//dichiaro il mio array di studenti, è statico quindi appartiene alla classe e può essere utilizzato da tutti i metodi
-						Studente[] studenti =  new Studente[15];
-						//inizializzo il mio array di studenti
-						studenti[0] = new Studente("Annarita", "Amendola", 'F'  );
-						studenti[1] = new Studente("Umberto", "Angelone", 'M'  );
-						studenti[2] = new Studente("Edita", "Burovaite", 'F'  );
-						studenti[3] = new Studente("Federica", "Caiulo", 'F'  );
-						studenti[4] = new Studente("Paolo", "Cetola", 'M'  );
-						studenti[5] = new Studente("Maurizio", "Cristiani", 'M'  );
-						studenti[6] = new Studente("Marco", "De palma", 'M'  );
-						studenti[7] = new Studente("Luca ", "Di Biase", 'M'  );
-						studenti[8] = new Studente("emmanuel", "dzuko sakepa", 'M'  );
-						studenti[9] = new Studente("Jean claude", "fansi", 'M'  );
-						studenti[10] = new Studente("Michele", "La riccia", 'M'  );
-						studenti[11] = new Studente("Tina", "Labate", 'F'  );
-						studenti[12] = new Studente("Raul", "Lara Molina", 'M'  );
-						studenti[13] = new Studente("Teresa", "Missanelli", 'F'  );
-						studenti[14] = new Studente("Chiara", "Quattrocchi", 'F'  );
+						//creo un nuovo registro, che viene inizializzato automaticamente con gli studenti
+						Registro registro = new Registro();
+						ArrayList<Studente> studenti = registro.getStudenti();
 						
 						out.print("<table class='table table-striped'>");
 						
@@ -55,9 +43,37 @@
 						break;
 					
 					case 2:
-						out.print("<h1>codice di pagina 2</h1>");
+						out.print("<h1>aritmetica e geometria</h1>");
+						
+						%>
+						
+						<jsp:include page="tabellina.jsp" />
+						
+						<%
+						
 						break;
 					
+					case 3:
+						
+						Dado.giocaDadi();
+						
+// 						for(String g : Dado.getGiocate()){
+// 							out.print("<p>" + g +"</p>");
+// 						}
+						out.print("<h1>Hai vinto " +  Dado.getVittorie().size()   +" volte!</h1>");
+						for(String v : Dado.getVittorie()){
+							out.print("<p>" + v +"</p>");
+						}
+						
+						break;
+					case 4:
+						
+						out.print("<h1>pietra forbici carta</h1>");
+						%>
+						<jsp:include page="giocoPFC.jsp"/>
+						
+						<%
+						break;
 						
 					default:
 						out.print( "La pagina " +     request.getParameter("pagina")  + " non è disponibile"  );

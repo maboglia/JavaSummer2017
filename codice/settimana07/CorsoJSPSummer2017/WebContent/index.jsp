@@ -1,5 +1,5 @@
 <!-- header.jsp -->
-<%@include file="header.jsp" %>
+<jsp:include page="header.jsp"  />
 
 <!-- menu.jsp -->
 <%@include file="menu.jsp" %>
