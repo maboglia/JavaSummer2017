@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style type="text/css">
+		.cosaFatta {text-decoration: line-through; }
+		ul {list-style-type: none;}
+	</style>
+</head>
+<body>
+
+
+	<div id="container">
+		
+		<input type="text" name="cosaDaFare" id="cosaDaFare" />
+		<button id="inserisciCosa">inserisci</button>		
+
+
+		<ul id="todoList">
+
+
+		</ul>
+
+
+	</div>
+<script src="js/jquery.min.js"></script>
+
+	<script type="text/javascript">
+			var link = '';
+			pulisciInput();
+
+		$("#inserisciCosa").click(
+		
+
+			function(event) {
+			var todo = $('#cosaDaFare').val();
+			if(todo.length > 0){
+				$('button').append('hai cliccato');
+				pulisciInput();
+				var check = "<input onclick='checkFatto(this)' type='checkbox'/>";
+				var canc = "<img src='img/canc.png' onclick='cancItem(this)'/>";
+				link += "<li>" + check + todo + canc +"</li>"; 
+
+				console.log(todo);
+				$("#todoList").html(link);
+
+			}
+		}
+		);
+
+		function checkFatto(argument) {
+			//$(argument).parent().css("textDecoration","line-through");
+			$(argument).parent().toggleClass('cosaFatta');
+		}
+
+		function cancItem(argument) {
+			//$(argument).parent().css("textDecoration","line-through");
+			//alert(argument);
+			$(argument).parent().hide(5000);
+		}
+
+		function pulisciInput() {
+			$('#cosaDaFare').val("");
+		}
+
+	</script>
+
+
+
+	<script src="js/script.js" type="text/javascript"></script>
+</body>
+</html>
