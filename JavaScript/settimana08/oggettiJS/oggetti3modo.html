@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		var Auto = {
+			produttore : "Fiat",
+			modello: 500,
+			proprietario : {
+				nome : "mauro",
+				telefono : 1234
+			},
+			cartaCircolazione: function () {
+				
+				var dettagli= this.produttore+"<br>"+this.modello+"<br>"+this.proprietario.nome;
+				return dettagli;				
+			}
+
+		};
+
+	</script>
+	</head>
+<body>
+
+	<div id="container">
+
+		<script type="text/javascript">
+			console.dir(Auto);
+			//var miaAuto = new Auto;
+			Auto.modello = 600;
+
+			var cc = Auto.cartaCircolazione();
+			alert(cc);
+		</script>
+
+
+	</div>
+
+</body>
+</html>
